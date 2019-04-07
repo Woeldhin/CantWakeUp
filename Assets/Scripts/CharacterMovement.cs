@@ -151,6 +151,8 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else
                 {
+                    // Clear any previous hit objects
+                    interactable = null;
                     // Set reticule color to black
                     reticule.color = Color.black;
                 }
