@@ -33,6 +33,8 @@ public class CharacterMovement : MonoBehaviour
     public float standUpSpeed;
     // Crouching down speed (0 - 1)
     public float crouchDownSpeed;
+    // Jumpforce
+    public float jumpForce;
     // Current movement speed
     private float speed;
     // Current height
@@ -80,6 +82,13 @@ public class CharacterMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") != 0)
             {
                 transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0));
+            }
+
+            // Jump
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // Adds upward force to player rigidbody
+                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
 
             // Crouch down
@@ -174,7 +183,13 @@ public class CharacterMovement : MonoBehaviour
             if (interactable && Input.GetMouseButtonDown(0))
             {
                 // Tell the interactable object to do something
-                interactable.SendMessage("Interact");
+                interactable.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+            }
+            // Check if there is an object to interact with and if left mouse button is held
+            if (interactable && Input.GetMouseButton(0))
+            {
+                // Tell the object to execute function called "Hold" and sends the point where the payer is looking as a parameter
+                interactable.SendMessage("Hold", hit.point, SendMessageOptions.DontRequireReceiver);
             }
         }
 
