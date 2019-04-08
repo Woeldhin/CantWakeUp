@@ -1,15 +1,18 @@
 fileFormatVersion: 2
-guid: c8528fba972b7364aa8826bf233c150a
+guid: d20c2d370a9a8a44ca6b3c23242d7b96
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 'Material #52'
-    2100002: white
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Sofa
+    100000: DigiBox
+    100002: //RootNode
+    100004: Group_11_1
+    400000: DigiBox
+    400002: //RootNode
+    400004: Group_11_1
+    2100000: DefaultM
+    2300000: DigiBox
+    3300000: DigiBox
+    4300000: DigiBox
   externalObjects: {}
   materials:
     importMaterials: 1

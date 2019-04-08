@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: c8528fba972b7364aa8826bf233c150a
+guid: aa1e44f610b96074bab4963d8ded0555
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: 'Material #52'
-    2100002: white
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sofa
+    4300000: Drawer_2
   externalObjects: {}
   materials:
     importMaterials: 1
