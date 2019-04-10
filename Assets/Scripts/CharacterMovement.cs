@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
     public GameObject interactable;
     // Pause screen
     public GameObject pauseScreen;
+    // GabPoint object
+    public Transform grabPoint;
 
     // Movement variables //
     // Interact distance
@@ -144,11 +146,12 @@ public class CharacterMovement : MonoBehaviour
             head.transform.localEulerAngles = (new Vector3(-rotationY, head.transform.localEulerAngles.y, 0));
 
             // Camera raycast
+
             // Get interactable objects
             // Variable for the object hit by raycast
             RaycastHit hit;
             // Check if raycast hits anything
-            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxDistance))
+            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxDistance) && !Input.GetMouseButton(0))
             {
                 // Check if the hit object has the tag "Interactable"
                 if (hit.collider.CompareTag("Interactable"))
@@ -166,7 +169,7 @@ public class CharacterMovement : MonoBehaviour
                     reticule.color = Color.black;
                 }
             }
-            else
+            else if (!Input.GetMouseButton(0))
             {
                 // Clear any previous hit objects
                 interactable = null;
@@ -184,12 +187,21 @@ public class CharacterMovement : MonoBehaviour
             {
                 // Tell the interactable object to do something
                 interactable.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+                grabPoint.position = hit.point;
             }
             // Check if there is an object to interact with and if left mouse button is held
             if (interactable && Input.GetMouseButton(0))
             {
                 // Tell the object to execute function called "Hold" and sends the point where the payer is looking as a parameter
-                interactable.SendMessage("Hold", hit.point, SendMessageOptions.DontRequireReceiver);
+                //Debug.Log(grabPoint.position);
+                interactable.SendMessage("Hold", grabPoint.position, SendMessageOptions.DontRequireReceiver);
+            }
+            // Gives objects a chance to reset stuff if needed
+            // Chacks if left mouse button is released
+            if (interactable && Input.GetMouseButtonUp(0))
+            {
+                // Tells interactable object to run funtion 'Reset'
+                interactable.SendMessage("Reset", SendMessageOptions.DontRequireReceiver);
             }
         }
 
