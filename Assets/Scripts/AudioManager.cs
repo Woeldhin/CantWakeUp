@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("tässäkin voi playaa soundin esim.");
+        //Debug.Log("tässäkin voi playaa soundin esim.");
     }
     // Update is called once per frame
     public void Play(string name)
