@@ -163,7 +163,7 @@ public class CharacterMovement : MonoBehaviour
                     // Clear any previous hit objects
                     interactable = null;
                     // Set reticule color to black
-                    reticule.color = Color.black;
+                    reticule.color = Color.white;
                 }
             }
             else if (!Input.GetKey(keybindings.interact))
@@ -171,7 +171,7 @@ public class CharacterMovement : MonoBehaviour
                 // Clear any previous hit objects
                 interactable = null;
                 // Set reticule color to black
-                reticule.color = Color.black;
+                reticule.color = Color.white;
             }
 
 
