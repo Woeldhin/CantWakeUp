@@ -15,10 +15,12 @@ public class CharacterMovement : MonoBehaviour
     public CapsuleCollider playerCollider;
     // Variable for interactable object
     public GameObject interactable;
-    // Pause screen
-    public GameObject pauseScreen;
     // GabPoint object
     public Transform grabPoint;
+    // Pause boolean
+    public bool paused;
+    // Keybinds
+    public Keybindings keybindings;
 
     // Movement variables //
     // Interact distance
@@ -56,17 +58,12 @@ public class CharacterMovement : MonoBehaviour
     // Variables to house rotation calculations
     private float rotationX;
     private float rotationY;
-    private bool paused;
 
     private void Start()
     {
         // Set the starting speed as standing speed just in case.
         speed = standSpeed;
-        // Set cursor invisible
-        Cursor.visible = false;
-        // Set cursor locked to the center of the game window
-        Cursor.lockState = CursorLockMode.Locked;
-        // Set mouseLocked boolean to true
+        // Set paused to false
         paused = false;
     }
 
@@ -151,7 +148,7 @@ public class CharacterMovement : MonoBehaviour
             // Variable for the object hit by raycast
             RaycastHit hit;
             // Check if raycast hits anything
-            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxDistance) && !Input.GetMouseButton(0))
+            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxDistance) && !Input.GetKey(keybindings.interact))
             {
                 // Check if the hit object has the tag "Interactable"
                 if (hit.collider.CompareTag("Interactable"))
@@ -169,7 +166,7 @@ public class CharacterMovement : MonoBehaviour
                     reticule.color = Color.black;
                 }
             }
-            else if (!Input.GetMouseButton(0))
+            else if (!Input.GetKey(keybindings.interact))
             {
                 // Clear any previous hit objects
                 interactable = null;
@@ -183,14 +180,14 @@ public class CharacterMovement : MonoBehaviour
             // Interact with interactable objects
 
             // Check if there is an object to interact with and if left mouse button is clicked
-            if (interactable && Input.GetMouseButtonDown(0))
+            if (interactable && Input.GetKeyDown(keybindings.interact))
             {
                 // Tell the interactable object to do something
                 interactable.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
                 grabPoint.position = hit.point;
             }
             // Check if there is an object to interact with and if left mouse button is held
-            if (interactable && Input.GetMouseButton(0))
+            if (interactable && Input.GetKey(keybindings.interact))
             {
                 // Tell the object to execute function called "Hold" and sends the point where the payer is looking as a parameter
                 //Debug.Log(grabPoint.position);
@@ -198,51 +195,11 @@ public class CharacterMovement : MonoBehaviour
             }
             // Gives objects a chance to reset stuff if needed
             // Chacks if left mouse button is released
-            if (interactable && Input.GetMouseButtonUp(0))
+            if (interactable && Input.GetKeyUp(keybindings.interact))
             {
                 // Tells interactable object to run funtion 'Reset'
                 interactable.SendMessage("Reset", SendMessageOptions.DontRequireReceiver);
             }
         }
-
-        // Interaction keypresses continue //
-        // Hide and lock the cursor
-
-        // Check if the pause key is pressed
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            // Check if game is paused
-            if (paused)
-            {
-                // Set cursor visible
-                Cursor.visible = false;
-                // Set cursor free
-                Cursor.lockState = CursorLockMode.Locked;
-                // Set mouseLocked boolean to false
-                paused = false;
-                // Disable pause screen
-                pauseScreen.SetActive(false);
-            }
-            else
-            {
-                // Set cursor invisible
-                Cursor.visible = true;
-                // Set cursor locked to the center of the game window
-                Cursor.lockState = CursorLockMode.None;
-                // Set mouseLocked boolean to true
-                paused = true;
-                // Enable pause screen
-                pauseScreen.SetActive(true);
-            }
-        }
-
-        // Reset the scene
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            //Reload the current scene
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
-        
     }
 }

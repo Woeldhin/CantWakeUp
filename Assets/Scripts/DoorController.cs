@@ -8,12 +8,14 @@ public class DoorController : MonoBehaviour
     public int openState;
     public GameObject parent;
     private float currentAngle;
+    private bool locked;
 
 
     // Start is called before the first frame update
     void Start()
     {
         openState = 0;
+        locked = true;
     }
 
     void Update()
@@ -40,7 +42,22 @@ public class DoorController : MonoBehaviour
 
     void Interact()
     {
-        //Debug.Log("It's locked.");
-        OpenAndClose();
+        if (locked)
+        {
+            Debug.Log("It's locked.");
+        }
+        else
+        {
+            OpenAndClose();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name.Contains("Key"))
+        {
+            locked = !locked;
+            collision.transform.gameObject.SetActive(false);
+        }
     }
 }
