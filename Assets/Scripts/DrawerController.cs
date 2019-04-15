@@ -14,6 +14,13 @@ public class DrawerController : MonoBehaviour
     public Vector3 currentPoint;
     // Maximum distance to pull the drawer
     public float maxPull;
+    // Indigator of current state
+    public bool isOpen = false;
+    // parent
+    DresserController parent;
+    // Lerp time in seconds
+    [SerializeField]
+    float lerpTime = 0.5f;
 
     void Start()
     {
@@ -23,7 +30,22 @@ public class DrawerController : MonoBehaviour
         openPos = closedPos - maxPull;
         // set the current position to be the intial world position of the drawer
         currentPoint = transform.localPosition;
+        // set parent
+        parent = this.gameObject.GetComponentInParent<DresserController>();
+        // If the starting state was set as open, move the drawer accordingly
+        if (isOpen)
+        {
+            currentPoint.z = openPos;
+            transform.localPosition = currentPoint;
+        }
     }
+
+    // Alternative for Hold, faster for testing
+    /*void Interact()
+    {
+        TogglePosition();
+        CallParent();
+    }*/
 
     // Do this every frame the player is holding the hold button on the drawer
     void Hold(Vector3 grabPoint)
@@ -48,13 +70,79 @@ public class DrawerController : MonoBehaviour
         }
     }
 
+    // Called when the hold is released, snap to closer position
     private void Reset()
     {
-        // Check if difference has the value of 0
-        if (difference != 0)
+        // Reset difference to 0
+        difference = 0;
+
+        // Jump to open position if it's closer then half the maxPull
+        if(Mathf.Abs(currentPoint.z - closedPos) > maxPull/2)
         {
-            // Set difference to 0
-            difference = 0;
+            if (!isOpen)
+            {
+                isOpen = true;
+                CallParent();
+            }
+        }
+        // Otherwise jump to closed position
+        else
+        {
+            if (isOpen)
+            {
+                isOpen = false;
+                CallParent();
+            }
+        }
+
+        // Update transform
+        StartCoroutine(LerpToPosition());
+    }
+
+    // Let the DresserParent know that we moved
+    void CallParent()
+    {
+        parent.DrawerUpdate(this);
+    }
+
+    // Toggle open state and position
+    public void TogglePosition()
+    {
+        // toggle isOpen
+        isOpen = !isOpen;
+
+        // Update transform
+        StartCoroutine(LerpToPosition());
+    }
+
+    IEnumerator LerpToPosition()
+    {
+        // Is already at desired position
+        if((isOpen && currentPoint.z == openPos) || (!isOpen && currentPoint.z == closedPos))
+        {
+            yield return null;
+        }
+
+        float startPos = transform.localPosition.z;
+        float finishPos;
+
+        if(isOpen)
+        {
+            finishPos = openPos;
+        } else
+        {
+            finishPos = closedPos;
+        }
+
+        float elapsedTime = 0;
+
+        // Lerp into desired position
+        while(elapsedTime < lerpTime)
+        {
+            currentPoint.z = Mathf.Lerp(startPos, finishPos, (elapsedTime / lerpTime));
+            transform.localPosition = currentPoint;
+            yield return new WaitForEndOfFrame();
+            elapsedTime += Time.deltaTime;
         }
     }
 }
