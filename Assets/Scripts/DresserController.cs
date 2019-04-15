@@ -8,19 +8,22 @@ public class DresserController : MonoBehaviour
     [SerializeField]
     // Array of the drawers that are part of the dresser
     DrawerController[] drawers;
+    [SerializeField]
+    // Complete sound
+    Sound victorySound;
 
     // Run every time drawers state is updated
     public void DrawerUpdate(DrawerController caller)
     {
-        // Check if there is need to update other drawers
+        // Find the drawer from the array
         for(int i = 0; i < drawers.Length; i++)
         {
             if(caller == drawers[i])
             {
-                Debug.Log("match found!");
                 DrawerMoved(i);
             }
         }
+
         CheckComplete();
     }
 
@@ -40,16 +43,27 @@ public class DresserController : MonoBehaviour
                 break;
             }
         }
-
+        // If all drawers where open, delete the dresser
         if (counter == drawers.Length)
         {
-            Debug.Log("The DrawerPuzzle is Complete!");
-            Destroy(this.gameObject);
+            if(victorySound != null)
+            {
+                victorySound.source = gameObject.AddComponent<AudioSource>();
+                victorySound.source.clip = victorySound.clip;
+
+                victorySound.source.volume = victorySound.volume;
+                victorySound.source.pitch = victorySound.pitch;
+                victorySound.source.loop = victorySound.loop;
+                victorySound.source.Play();
+            }
+            Destroy(this.gameObject, 1);
         }
     }
 
+    // drawer moved so others may have to as well
     void DrawerMoved(int index)
     {
+        // Cases for different sized dressers
         if(drawers.Length == 2)
         {
             switch(index)

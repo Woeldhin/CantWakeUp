@@ -1652,6 +1652,7 @@ MonoBehaviour:
   currentPoint: {x: 0, y: 0, z: 0}
   maxPull: 0.4
   isOpen: 0
+  lerpTime: 0.5
 --- !u!1 &454450038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,6 +3378,7 @@ MonoBehaviour:
   currentPoint: {x: 0, y: 0, z: 0}
   maxPull: 0.4
   isOpen: 1
+  lerpTime: 0.5
 --- !u!65 &922190392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5556,6 +5558,7 @@ MonoBehaviour:
   currentPoint: {x: 0, y: 0, z: 0}
   maxPull: 0.4
   isOpen: 0
+  lerpTime: 0.5
 --- !u!1 &1381925084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8395,6 +8398,13 @@ MonoBehaviour:
   - {fileID: 1381755602}
   - {fileID: 442699911}
   - {fileID: 922190391}
+  victorySound:
+    name: 
+    clip: {fileID: 8300000, guid: a917b850a915e2b4693e6e5eed96ce28, type: 3}
+    volume: 0.547
+    pitch: 2.51
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &2063725160
 GameObject:
   m_ObjectHideFlags: 0
