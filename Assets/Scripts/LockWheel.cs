@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockWheel : MonoBehaviour
 {
     public CombinationLock thisLock;
+    public Text visionThing; // Hopefully temporary
     public int steps;
     public int startStep;
     public int currentStep;
@@ -14,6 +16,7 @@ public class LockWheel : MonoBehaviour
         startStep = (int)Random.Range(0f, 9.9999f);
         currentStep = startStep;
         transform.Rotate(0, 360/steps*startStep, 0);
+        visionThing.text = currentStep.ToString();
     }
 
     private void Interact()
@@ -25,5 +28,6 @@ public class LockWheel : MonoBehaviour
             currentStep = 0;
         }
         thisLock.CheckIfCorrect();
+        visionThing.text = currentStep.ToString();
     }
 }
