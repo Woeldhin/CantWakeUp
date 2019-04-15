@@ -8,14 +8,13 @@ public class DoorController : MonoBehaviour
     public int openState;
     public GameObject parent;
     private float currentAngle;
-    private bool locked;
+    public bool locked;
 
 
     // Start is called before the first frame update
     void Start()
     {
         openState = 0;
-        locked = true;
     }
 
     void Update()
