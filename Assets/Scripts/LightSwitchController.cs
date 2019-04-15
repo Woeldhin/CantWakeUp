@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class LightSwitchController : MonoBehaviour
 {
-
+    //Boolean to check are lights on or off
     public bool isLightsOn;
-
-
-
+    
+    //Gameobjects for light and switch
     public GameObject SpotLight;
     public GameObject Switch;
 
-    // Start is called before the first frame update
+    // Check at start is light on or off and do stuff accordingly
     void Start()
     {
         if(SpotLight.activeInHierarchy == true)
@@ -27,6 +26,7 @@ public class LightSwitchController : MonoBehaviour
         }
     }
 
+    //Interacting with lightSwitch ...
     void Interact()
     {
         Debug.Log("LightSwitch!");
@@ -40,7 +40,7 @@ public class LightSwitchController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // ... and do stuff from it depending is it on or off and viceversa
     void Update()
     {
         if(isLightsOn == true)
