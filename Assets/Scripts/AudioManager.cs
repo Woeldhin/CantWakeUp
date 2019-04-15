@@ -6,14 +6,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
+    //List for sounds to be stored in
     public Sound[] sounds;
 
+    //Instance of audio manager
     public static AudioManager instance;
 
     // Start is called before the first frame update
     void Awake()
     {
+
+        //Checks that there is only one instance of audio manager
         if (instance == null)
             instance = this;
         else
@@ -23,6 +26,7 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
 
         foreach (Sound s in sounds)
         {
