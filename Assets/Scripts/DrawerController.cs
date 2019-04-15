@@ -14,6 +14,8 @@ public class DrawerController : MonoBehaviour
     public Vector3 currentPoint;
     // Maximum distance to pull the drawer
     public float maxPull;
+    // Indigator of current state
+    public bool isOpen = false;
 
     void Start()
     {
@@ -23,6 +25,18 @@ public class DrawerController : MonoBehaviour
         openPos = closedPos - maxPull;
         // set the current position to be the intial world position of the drawer
         currentPoint = transform.localPosition;
+        
+        if(isOpen)
+        {
+            currentPoint.z = openPos;
+            transform.localPosition = currentPoint;
+        }
+    }
+
+    void Interact()
+    {
+        TogglePosition();
+        CallParent();
     }
 
     // Do this every frame the player is holding the hold button on the drawer
@@ -48,13 +62,55 @@ public class DrawerController : MonoBehaviour
         }
     }
 
+    // Called when the hold is released
     private void Reset()
     {
-        // Check if difference has the value of 0
-        if (difference != 0)
+
+        // Reset difference to 0
+        difference = 0;
+
+        // Jump to open position if it's closer then half the maxPull
+        if(Mathf.Abs(currentPoint.z - closedPos) > maxPull/2)
         {
-            // Set difference to 0
-            difference = 0;
+            currentPoint.z = openPos;
+            if (!isOpen)
+            {
+                isOpen = true;
+                CallParent();
+            }
         }
+        // Otherwise jump to closed position
+        else
+        {
+            currentPoint.z = closedPos;
+            if (isOpen)
+            {
+                isOpen = false;
+                CallParent();
+            }
+        }
+
+        // Update transform
+        transform.localPosition = currentPoint;
+    }
+
+    void CallParent()
+    {
+        this.gameObject.GetComponentInParent<DresserController>().DrawerUpdate(this);
+    }
+
+    public void TogglePosition()
+    {
+        isOpen = !isOpen;
+
+        if(isOpen)
+        {
+            currentPoint.z = openPos;
+        } else
+        {
+            currentPoint.z = closedPos;
+        }
+
+        transform.localPosition = currentPoint;
     }
 }
