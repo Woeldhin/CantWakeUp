@@ -84,14 +84,14 @@ public class CharacterMovement : MonoBehaviour
             }
 
             // Jump
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(keybindings.jump))
             {
                 // Adds upward force to player rigidbody
                 gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
 
             // Crouch down
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(keybindings.crouch))
             {
                 // Change movement speed to crouch speed
                 speed = crouchSpeed;
@@ -105,7 +105,7 @@ public class CharacterMovement : MonoBehaviour
                 standCrouchSpeed = crouchDownSpeed;
             }
             // Stand up
-            if (Input.GetKeyUp(KeyCode.LeftControl))
+            if (Input.GetKeyUp(keybindings.crouch))
             {
                 // Set movement speed to stand speed
                 speed = standSpeed;
