@@ -33,22 +33,11 @@ public class LightSwitchController : MonoBehaviour
         if(isLightsOn == true)
         {
             isLightsOn = false;
-        }
-        else
-        {
-            isLightsOn = true;
-        }
-    }
-
-    // ... and do stuff from it depending is it on or off and viceversa
-    void Update()
-    {
-        if(isLightsOn == true)
-        {
             SpotLight.SetActive(true);
         }
         else
         {
+            isLightsOn = true;
             SpotLight.SetActive(false);
         }
     }
