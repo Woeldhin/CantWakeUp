@@ -36,5 +36,7 @@ public class CombinationLock : MonoBehaviour
     {
         // I guess something happens 
         Debug.Log("Mellon");
+        // Open the locked Object
+        lockedObject.transform.Rotate(0, -90, 0);
     }
 }
