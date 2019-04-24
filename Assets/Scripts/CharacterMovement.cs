@@ -39,6 +39,8 @@ public class CharacterMovement : MonoBehaviour
     public float crouchDownSpeed;
     // Jumpforce
     public float jumpForce;
+    // Grounded boolean
+    private bool isGrounded;
     // Current movement speed
     private float speed;
     // Current height
@@ -65,6 +67,8 @@ public class CharacterMovement : MonoBehaviour
         speed = standSpeed;
         // Set paused to false
         paused = false;
+        // Set grounded to true
+        isGrounded = true;
     }
 
     void Update()
@@ -86,8 +90,13 @@ public class CharacterMovement : MonoBehaviour
             // Jump
             if (Input.GetKeyDown(keybindings.jump))
             {
-                // Adds upward force to player rigidbody
-                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                if (isGrounded)
+                {
+                    // Adds upward force to player rigidbody
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
+                    // Set isGrounded to false
+                    isGrounded = false;
+                }
             }
 
             // Crouch down
@@ -144,6 +153,15 @@ public class CharacterMovement : MonoBehaviour
 
             // Camera raycast
 
+
+            // Gives objects a chance to reset stuff if needed
+            // Chacks if left mouse button is released
+            if (interactable && Input.GetKeyUp(keybindings.interact))
+            {
+                // Tells interactable object to run funtion 'Reset'
+                interactable.SendMessage("Reset", SendMessageOptions.DontRequireReceiver);
+            }
+
             // Get interactable objects
             // Variable for the object hit by raycast
             RaycastHit hit;
@@ -193,13 +211,11 @@ public class CharacterMovement : MonoBehaviour
                 //Debug.Log(grabPoint.position);
                 interactable.SendMessage("Hold", grabPoint.position, SendMessageOptions.DontRequireReceiver);
             }
-            // Gives objects a chance to reset stuff if needed
-            // Chacks if left mouse button is released
-            if (interactable && Input.GetKeyUp(keybindings.interact))
-            {
-                // Tells interactable object to run funtion 'Reset'
-                interactable.SendMessage("Reset", SendMessageOptions.DontRequireReceiver);
-            }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        isGrounded = true;
     }
 }
