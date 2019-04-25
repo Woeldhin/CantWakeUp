@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 12989924303146134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.013, y: 1.267, z: -2.348}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,5 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591d4604aeefd7c4aa5265c67a15cfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledFromStart: 0
   laserPrefab: {fileID: 1235798386483749424, guid: cb46f6e2fa30b844998ce162575ff125,
     type: 3}

@@ -138,13 +138,13 @@ MonoBehaviour:
   paused: 0
   keybindings: {fileID: 0}
   maxDistance: 1.25
-  standSpeed: 2
-  crouchSpeed: 1
+  standSpeed: 3
+  crouchSpeed: 1.5
   standHeight: 1.72
   crouchHeight: 0.8
   standUpSpeed: 0.1
   crouchDownSpeed: 0.2
-  jumpForce: 4
+  jumpForce: 5
   sensitivity: 5
   minY: -60
   maxY: 60
