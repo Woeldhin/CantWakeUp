@@ -49,7 +49,7 @@ public class WaterPuzzleTap : MonoBehaviour
             tank5bar1.GetComponent<Renderer>().material.color = Color.white;
             tank5bar2.GetComponent<Renderer>().material.color = Color.white;
             tank5bar3.GetComponent<Renderer>().material.color = Color.white;
-            tank5bar4.GetComponent<Renderer>().material.color = Color.white;
+            tank5bar4.GetComponent<Renderer>().material.color = Color.green;
             tank5bar5.GetComponent<Renderer>().material.color = Color.white;
 
             GameObject.Find("Tank5").GetComponent<WaterPuzzleTank5>().count5 = 0;

@@ -126,21 +126,21 @@ public class WaterPuzzleTank3 : MonoBehaviour
                     break;
                 case 3:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.white;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.yellow;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
                     tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
                     break;
                 case 2:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.white;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
                     tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
                     break;
                 case 1:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.white;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
@@ -149,7 +149,7 @@ public class WaterPuzzleTank3 : MonoBehaviour
                     tank5bar1.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.white;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
                     break;
                 default:

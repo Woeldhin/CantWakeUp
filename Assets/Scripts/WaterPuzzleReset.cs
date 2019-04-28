@@ -8,6 +8,7 @@ public class WaterPuzzleReset : MonoBehaviour
     GameObject tap;
     GameObject tank3;
     GameObject tank5;
+    GameObject tank5bar4;
 
 
     Color color = Color.white;
@@ -17,6 +18,7 @@ public class WaterPuzzleReset : MonoBehaviour
         tap = GameObject.Find("Tap");
         tank5 = GameObject.Find("Tank5");
         tank3 = GameObject.Find("Tank3");
+        tank5bar4 = GameObject.Find("Tank5Bar4");
     }
 
     void Interact()
@@ -41,6 +43,8 @@ public class WaterPuzzleReset : MonoBehaviour
         tap.GetComponent<Renderer>().material.color = Color.white;
         tank3.GetComponent<Renderer>().material.color = Color.white;
         tank5.GetComponent<Renderer>().material.color = Color.white;
+
+        tank5bar4.GetComponent<Renderer>().material.color = Color.green;
 
     }
          
