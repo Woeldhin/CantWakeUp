@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AlarmClockController : MonoBehaviour
 {
+    // Drawer puzzle starter
+    public DrawerController drawer;
+
     //Scrolls at back of clock that player uses to change clocks time
     public GameObject minuteScroll;
     public GameObject hourScroll;
@@ -53,19 +56,12 @@ public class AlarmClockController : MonoBehaviour
                 hourCounter = 0;
             }
         }
-    }
-
-    void Update()
-    {
-        //Debug.Log("Tunnit");
-        //Debug.Log(hourCounter);
-        //Debug.Log("Minuutit");
-        //Debug.Log(minuteCounter);
 
         //Check if minute and hour counters are at right position for player to "win" this puzzle
         if (minuteCounter == 0 && hourCounter == 3)
         {
             Debug.Log("Voitit kellopelin!");
+            drawer.TogglePosition();
         }
     }
 }

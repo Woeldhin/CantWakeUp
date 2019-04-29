@@ -25,9 +25,9 @@ public class DrawerController : MonoBehaviour
     void Start()
     {
         // Set the closed position to be the initial position of the drawer
-        closedPos = transform.localPosition.z;
+        closedPos = transform.localPosition.x;
         // Set the open position to be a position that's maxPull distance away from the closed position
-        openPos = closedPos - maxPull;
+        openPos = closedPos + maxPull;
         // set the current position to be the intial world position of the drawer
         currentPoint = transform.localPosition;
         // set parent
@@ -35,7 +35,7 @@ public class DrawerController : MonoBehaviour
         // If the starting state was set as open, move the drawer accordingly
         if (isOpen)
         {
-            currentPoint.z = openPos;
+            currentPoint.x = openPos;
             transform.localPosition = currentPoint;
         }
     }
@@ -57,14 +57,14 @@ public class DrawerController : MonoBehaviour
         if (difference == 0)
         {
             // Set the difference as the distance between the grabpoint and transform position on the z axis
-            difference = transform.localPosition.z - grabPoint.z;
+            difference = transform.localPosition.x - grabPoint.z;
         }
 
         // Check if the potential new position for the drawer is between the closed and open positions
-        if (grabPoint.z + difference <= closedPos && grabPoint.z + difference >= openPos)
+        if (grabPoint.z + difference >= closedPos && grabPoint.z + difference <= openPos)
         {
             // Set the current position to align with the current position of grabpoint
-            currentPoint.z = grabPoint.z + difference;
+            currentPoint.x = grabPoint.z + difference;
             // Set new position for transform
             transform.localPosition = currentPoint;
         }
@@ -77,7 +77,7 @@ public class DrawerController : MonoBehaviour
         difference = 0;
 
         // Jump to open position if it's closer then half the maxPull
-        if(Mathf.Abs(currentPoint.z - closedPos) > maxPull/2)
+        if(Mathf.Abs(currentPoint.x - closedPos) > maxPull/2)
         {
             if (!isOpen)
             {
@@ -118,12 +118,12 @@ public class DrawerController : MonoBehaviour
     IEnumerator LerpToPosition()
     {
         // Is already at desired position
-        if((isOpen && currentPoint.z == openPos) || (!isOpen && currentPoint.z == closedPos))
+        if((isOpen && currentPoint.z == openPos) || (!isOpen && currentPoint.x == closedPos))
         {
             yield return null;
         }
 
-        float startPos = transform.localPosition.z;
+        float startPos = transform.localPosition.x;
         float finishPos;
 
         if(isOpen)
@@ -139,7 +139,7 @@ public class DrawerController : MonoBehaviour
         // Lerp into desired position
         while(elapsedTime < lerpTime)
         {
-            currentPoint.z = Mathf.Lerp(startPos, finishPos, (elapsedTime / lerpTime));
+            currentPoint.x = Mathf.Lerp(startPos, finishPos, (elapsedTime / lerpTime));
             transform.localPosition = currentPoint;
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
