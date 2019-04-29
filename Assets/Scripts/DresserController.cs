@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DresserController : MonoBehaviour
 {
+    public Rigidbody key;
 
     [SerializeField]
     // Array of the drawers that are part of the dresser
@@ -56,6 +57,7 @@ public class DresserController : MonoBehaviour
                 victorySound.source.loop = victorySound.loop;
                 victorySound.source.Play();
             }
+            key.isKinematic = false;
             Destroy(this.gameObject, 1);
         }
     }

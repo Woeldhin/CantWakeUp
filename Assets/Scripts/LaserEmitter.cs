@@ -45,9 +45,9 @@ public class LaserEmitter : MonoBehaviour
                         target = hit.transform.gameObject;
                     }
                 }
-                else if (hit.transform.name.Contains("Body"))
+                else if (hit.transform.name.Contains("TV"))
                 {
-                    Debug.Log("You win");
+                    hit.transform.SendMessage("TurnOn", SendMessageOptions.DontRequireReceiver);
                 }
                 else if (target)
                 {
@@ -75,5 +75,12 @@ public class LaserEmitter : MonoBehaviour
         turnedOn = !turnedOn;
 
         laser.SetActive(turnedOn);
+    }
+
+    public void GoodJob()
+    {
+        turnedOn = false;
+        gameObject.tag = "Untagged";
+        GetComponent<Renderer>().enabled = false;
     }
 }
