@@ -19,4 +19,7 @@ public class Sound
     [HideInInspector]
     public AudioSource source;
 
+    [Range(0f, 1f)]
+    public float spatialBlend;
+
 }
