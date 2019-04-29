@@ -21,6 +21,8 @@ public class CharacterMovement : MonoBehaviour
     public bool paused;
     // Keybinds
     public Keybindings keybindings;
+    // Rigidbody
+    public Rigidbody playerRB;
 
     // Movement variables //
     // Interact distance
@@ -76,7 +78,6 @@ public class CharacterMovement : MonoBehaviour
         // Character movement
 
         if(!paused) {
-            
 
             // Jump
             if (Input.GetKeyDown(keybindings.jump))
@@ -210,15 +211,7 @@ public class CharacterMovement : MonoBehaviour
         if (!paused)
         {
             // Moves character forward or backward
-            if (Input.GetAxis("Vertical") != 0)
-            {
-                transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
-            }
-            // Moves character sideways
-            if (Input.GetAxis("Horizontal") != 0)
-            {
-                transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0));
-            }
+            playerRB.MovePosition(transform.position + (Vector3.Normalize(transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")) * speed * Time.deltaTime));
         }
     }
 
