@@ -133,7 +133,7 @@ public class CharacterMovement : MonoBehaviour
             // Calculate horizontal rotation
             rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 
-            //Calculate vertical rotation
+            // Calculate vertical rotation
             rotationY += Input.GetAxis("Mouse Y") * sensitivity;
             rotationY = Mathf.Clamp(rotationY, minY, maxY);
 
