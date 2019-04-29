@@ -76,16 +76,7 @@ public class CharacterMovement : MonoBehaviour
         // Character movement
 
         if(!paused) {
-            // Moves character forward or backward
-            if (Input.GetAxis("Vertical") != 0)
-            {
-                transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
-            }
-            // Moves character sideways
-            if (Input.GetAxis("Horizontal") != 0)
-            {
-                transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0));
-            }
+            
 
             // Jump
             if (Input.GetKeyDown(keybindings.jump))
@@ -210,6 +201,23 @@ public class CharacterMovement : MonoBehaviour
                 // Tell the object to execute function called "Hold" and sends the point where the payer is looking as a parameter
                 //Debug.Log(grabPoint.position);
                 interactable.SendMessage("Hold", grabPoint.position, SendMessageOptions.DontRequireReceiver);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!paused)
+        {
+            // Moves character forward or backward
+            if (Input.GetAxis("Vertical") != 0)
+            {
+                transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
+            }
+            // Moves character sideways
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0));
             }
         }
     }

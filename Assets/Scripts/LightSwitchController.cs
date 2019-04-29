@@ -14,15 +14,15 @@ public class LightSwitchController : MonoBehaviour
     // Check at start is light on or off and do stuff accordingly
     void Start()
     {
-        if(SpotLight.activeInHierarchy == true)
+        if(SpotLight.activeSelf == true)
         {
             isLightsOn = true;
-            Switch.transform.eulerAngles = new Vector3(10, 0, 0);
+            Switch.transform.localEulerAngles = new Vector3(10, 0, 0);
         }
         else
         {
             isLightsOn = false;
-            Switch.transform.eulerAngles = new Vector3(-10, 0, 0);
+            Switch.transform.localEulerAngles = new Vector3(-10, 0, 0);
         }
     }
 
@@ -33,12 +33,14 @@ public class LightSwitchController : MonoBehaviour
         if(isLightsOn == true)
         {
             isLightsOn = false;
-            SpotLight.SetActive(true);
+            SpotLight.SetActive(false);
+            Switch.transform.localEulerAngles = new Vector3(-10, 0, 0);
         }
         else
         {
             isLightsOn = true;
-            SpotLight.SetActive(false);
+            SpotLight.SetActive(true);
+            Switch.transform.localEulerAngles = new Vector3(10, 0, 0);
         }
     }
 }
