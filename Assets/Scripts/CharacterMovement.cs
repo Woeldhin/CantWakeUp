@@ -63,6 +63,14 @@ public class CharacterMovement : MonoBehaviour
     private float rotationX;
     private float rotationY;
 
+    //Audio stuff//
+    //Clips
+    public AudioClip walkingSound;
+    public AudioClip jumpingSound;
+    //Sources
+    public AudioSource playersFeet1;
+    public AudioSource playersFeet2;
+
     private void Start()
     {
         // Set the starting speed as standing speed just in case.
@@ -71,19 +79,21 @@ public class CharacterMovement : MonoBehaviour
         paused = false;
         // Set grounded to true
         isGrounded = true;
+        //Set up the clips to source (Audio)
+        playersFeet1.clip = walkingSound;
+        playersFeet2.clip = jumpingSound;
     }
 
     void Update()
     {
         // Character movement
-
-        if(!paused) {
-
-            // Jump
+        if (!paused) {
             if (Input.GetKeyDown(keybindings.jump))
             {
                 if (isGrounded)
                 {
+                    // Jump sound
+                    playersFeet2.Play();
                     // Adds upward force to player rigidbody
                     gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
                     // Set isGrounded to false
@@ -211,9 +221,15 @@ public class CharacterMovement : MonoBehaviour
         if (!paused)
         {
             // Moves character forward or backward
+            //if (!playersFeet1.isPlaying)
+            //{
+            //    playersFeet1.PlayOneShot(walkingSound);
+            //}
             playerRB.MovePosition(transform.position + (Vector3.Normalize(transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")) * speed * Time.deltaTime));
         }
+        
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
