@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
     public Keybindings keybindings;
     // Rigidbody
     public Rigidbody playerRB;
+    // Animation component
+    public Animation anim;
 
     // Movement variables //
     // Interact distance
@@ -68,9 +70,10 @@ public class CharacterMovement : MonoBehaviour
         // Set the starting speed as standing speed just in case.
         speed = standSpeed;
         // Set paused to false
-        paused = false;
+        paused = true;
         // Set grounded to true
         isGrounded = true;
+        StartCoroutine(WakeUp());
     }
 
     void Update()
@@ -220,8 +223,14 @@ public class CharacterMovement : MonoBehaviour
         isGrounded = true;
     }
 
-    void WakeUP()
+    IEnumerator WakeUp()
     {
 
+        anim.Play("LieInBed");
+        yield return new WaitForSeconds(1);
+        anim.Play("WakeUp");
+        yield return new WaitForSeconds(3);
+        paused = false;
+        yield return null;
     }
 }
