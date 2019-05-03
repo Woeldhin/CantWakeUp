@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5143984834190367429}
   - component: {fileID: 5143984834190367430}
   - component: {fileID: 555240731}
+  - component: {fileID: 706296127}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -138,6 +139,7 @@ MonoBehaviour:
   paused: 0
   keybindings: {fileID: 0}
   playerRB: {fileID: 5143984834190367429}
+  anim: {fileID: 706296127}
   maxDistance: 1.25
   standSpeed: 3
   crouchSpeed: 1.5
@@ -192,6 +194,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &706296127
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143984834190367425}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 56a5444a6ae357341b147b2425712c2f, type: 2}
+  - {fileID: 7400000, guid: 202efcc2f01e7eb4cb39039dfb5ad88d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5143984834618324041
 GameObject:
   m_ObjectHideFlags: 0
