@@ -21,6 +21,7 @@ public class LaserEmitter : MonoBehaviour
         turnedOn = false;
         laser.SetActive(false);
         gameObject.GetComponent<Renderer>().enabled = enabledFromStart;
+        
     }
 
     void Update()
