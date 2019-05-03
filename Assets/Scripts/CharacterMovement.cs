@@ -215,8 +215,13 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         isGrounded = true;
+    }
+
+    void WakeUP()
+    {
+
     }
 }
