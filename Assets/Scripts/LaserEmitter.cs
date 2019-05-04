@@ -12,6 +12,12 @@ public class LaserEmitter : MonoBehaviour
     private bool turnedOn;
     private GameObject target;
 
+    //Audio stuff//
+    //Clips
+    public AudioClip laserOn;
+    //Sources
+    public AudioSource forLaser;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +27,10 @@ public class LaserEmitter : MonoBehaviour
         turnedOn = false;
         laser.SetActive(false);
         gameObject.GetComponent<Renderer>().enabled = enabledFromStart;
-        
+
+        //Setting audioclips to audio sources
+        forLaser.clip = laserOn;
+
     }
 
     void Update()
@@ -37,6 +46,8 @@ public class LaserEmitter : MonoBehaviour
 
             if (turnedOn)
             {
+                //Play laser sounds when emitter is on
+                forLaser.Play();
                 if (hit.transform.name.Contains("LaserEmitter"))
                 {
                     if (!target)
