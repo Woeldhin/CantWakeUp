@@ -10,11 +10,21 @@ public class DoorController : MonoBehaviour
     private float currentAngle;
     public bool locked;
 
+    //Audio stuff//
+    //Audio clips
+    public AudioClip openDoor;
+    public AudioClip closeDoor;
+    //Audio sources
+    public AudioSource forOpeningDoor;
+    public AudioSource forClosingDoor;
 
     // Start is called before the first frame update
     void Start()
     {
         openState = 0;
+        //Setting audioclips to audio sources
+        forOpeningDoor.clip = openDoor;
+        forClosingDoor.clip = closeDoor;
     }
 
     void Update()
@@ -32,10 +42,14 @@ public class DoorController : MonoBehaviour
         if (openState == 0)
         {
             openState = 1;
+            //Play audio for opening door
+            forOpeningDoor.Play();
         }
         else
         {
             openState = 0;
+            //Play audio for closing door
+            forClosingDoor.PlayDelayed(0.3f);
         }
     }
 
