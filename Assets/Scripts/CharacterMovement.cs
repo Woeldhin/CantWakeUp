@@ -65,6 +65,12 @@ public class CharacterMovement : MonoBehaviour
     private float rotationX;
     private float rotationY;
 
+    //Audio stuff//
+    //Audio clips
+    public AudioClip jumpingSound;
+    //Audio sources
+    public AudioSource playersFeet4Jump;
+
     private void Start()
     {
         // Set the starting speed as standing speed just in case.
@@ -74,6 +80,9 @@ public class CharacterMovement : MonoBehaviour
         // Set grounded to true
         isGrounded = true;
         StartCoroutine(WakeUp());
+
+        //Putting sounds to sources
+        playersFeet4Jump.clip = jumpingSound;
     }
 
     void Update()
@@ -87,6 +96,8 @@ public class CharacterMovement : MonoBehaviour
             {
                 if (isGrounded)
                 {
+                    //Jump clip played
+                    playersFeet4Jump.Play();
                     // Adds upward force to player rigidbody
                     gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
                     // Set isGrounded to false

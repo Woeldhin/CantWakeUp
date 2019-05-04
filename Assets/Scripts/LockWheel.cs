@@ -10,6 +10,11 @@ public class LockWheel : MonoBehaviour
     public int steps;
     public int startStep;
     public int currentStep;
+    //Audio stuff//
+    //Clips
+    public AudioClip numericLock;
+    //Sources
+    public AudioSource sourceForLock;
 
     private void Start()
     {
@@ -17,10 +22,13 @@ public class LockWheel : MonoBehaviour
         currentStep = startStep;
         transform.Rotate(0, 360/steps*startStep, 0);
         visionThing.text = currentStep.ToString();
+        //Putting sounds to sources
+        sourceForLock.clip = numericLock;
     }
 
     private void Interact()
     {
+        sourceForLock.Play();
         transform.Rotate(0, 360/steps, 0);
         currentStep++;
         if (currentStep == 10)
