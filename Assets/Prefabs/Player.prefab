@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5143984833642885885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.574, z: 0}
+  m_LocalPosition: {x: 0, y: 1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5143984834618324040}
@@ -150,8 +150,8 @@ MonoBehaviour:
   crouchDownSpeed: 0.2
   jumpForce: 5
   sensitivity: 5
-  minY: -60
-  maxY: 60
+  minY: -80
+  maxY: 80
   jumpingSound: {fileID: 8300000, guid: 3634e4d43cf799348892b05044c6feda, type: 3}
   playersFeet4Jump: {fileID: 8002050328858144991}
   flipped: 0
@@ -212,8 +212,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 56a5444a6ae357341b147b2425712c2f, type: 2}
-  - {fileID: 7400000, guid: 202efcc2f01e7eb4cb39039dfb5ad88d, type: 2}
+  - {fileID: 7400000, guid: 13ce07cd24b405542a02da2e7fa0c2ba, type: 2}
+  - {fileID: 7400000, guid: 6d63f636fd56c6047a426fd91c2b75eb, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
