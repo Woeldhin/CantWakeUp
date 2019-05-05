@@ -58,11 +58,11 @@ public class WaterPuzzleTank5 : MonoBehaviour
         if ((gameObject.GetComponent<Renderer>().material.color == Color.red) && (tap.GetComponent<Renderer>().material.color == Color.red))
         {
             count5 = 5;
-            tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
-            tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
-            tank5bar3.GetComponent<Renderer>().material.color = Color.yellow;
-            tank5bar4.GetComponent<Renderer>().material.color = Color.yellow;
-            tank5bar5.GetComponent<Renderer>().material.color = Color.yellow;
+            tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
+            tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
+            tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
+            tank5bar4.GetComponent<Renderer>().material.color = Color.cyan;
+            tank5bar5.GetComponent<Renderer>().material.color = Color.cyan;
 
             gameObject.GetComponent<Renderer>().material.color = Color.white;
             tap.GetComponent<Renderer>().material.color = Color.white;
@@ -81,40 +81,40 @@ public class WaterPuzzleTank5 : MonoBehaviour
             switch (realcount)
             {
                 case 5:
-                    tank5bar5.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar3.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank5bar5.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 4:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar4.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar3.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank5bar4.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     print("You win!");
                     break;
                 case 3:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar4.GetComponent<Renderer>().material.color = Color.green;
-                    tank5bar3.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 2:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 1:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar4.GetComponent<Renderer>().material.color = Color.green;
                     tank5bar3.GetComponent<Renderer>().material.color = Color.white;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.white;
-                    tank5bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 0:
                     tank5bar1.GetComponent<Renderer>().material.color = Color.white;
@@ -135,19 +135,19 @@ public class WaterPuzzleTank5 : MonoBehaviour
             switch (rest)
             {
                 case 3:
-                    tank3bar1.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank3bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank3bar3.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank3bar1.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank3bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank3bar3.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 2:
                     tank3bar3.GetComponent<Renderer>().material.color = Color.white;
-                    tank3bar2.GetComponent<Renderer>().material.color = Color.yellow;
-                    tank3bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank3bar2.GetComponent<Renderer>().material.color = Color.cyan;
+                    tank3bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 1:
                     tank3bar3.GetComponent<Renderer>().material.color = Color.white;
                     tank3bar2.GetComponent<Renderer>().material.color = Color.white;
-                    tank3bar1.GetComponent<Renderer>().material.color = Color.yellow;
+                    tank3bar1.GetComponent<Renderer>().material.color = Color.cyan;
                     break;
                 case 0:
                     tank3bar1.GetComponent<Renderer>().material.color = Color.white;

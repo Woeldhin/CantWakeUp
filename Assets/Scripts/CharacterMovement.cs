@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
     public Keybindings keybindings;
     // Rigidbody
     public Rigidbody playerRB;
+    // Animation component
+    public Animation anim;
 
     // Movement variables //
     // Interact distance
@@ -63,14 +65,24 @@ public class CharacterMovement : MonoBehaviour
     private float rotationX;
     private float rotationY;
 
+    //Audio stuff//
+    //Audio clips
+    public AudioClip jumpingSound;
+    //Audio sources
+    public AudioSource playersFeet4Jump;
+
     private void Start()
     {
         // Set the starting speed as standing speed just in case.
         speed = standSpeed;
         // Set paused to false
-        paused = false;
+        paused = true;
         // Set grounded to true
         isGrounded = true;
+        StartCoroutine(WakeUp());
+
+        //Putting sounds to sources
+        playersFeet4Jump.clip = jumpingSound;
     }
 
     void Update()
@@ -84,6 +96,8 @@ public class CharacterMovement : MonoBehaviour
             {
                 if (isGrounded)
                 {
+                    //Jump clip played
+                    playersFeet4Jump.Play();
                     // Adds upward force to player rigidbody
                     gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
                     // Set isGrounded to false
@@ -132,14 +146,14 @@ public class CharacterMovement : MonoBehaviour
             // Viewpoint rotation
 
             // Calculate horizontal rotation
-            rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
+            rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity * flipCameraX;
 
             // Calculate vertical rotation
             rotationY += Input.GetAxis("Mouse Y") * sensitivity;
             rotationY = Mathf.Clamp(rotationY, minY, maxY);
 
             // Rotate character for the horizontal rotation (camera is following the character)
-            transform.localEulerAngles = new Vector3(0, rotationX, 0);
+            transform.localEulerAngles = new Vector3(0, rotationX, transform.rotation.eulerAngles.z);
             // Rotate only the camera in vertical rotation (so that the character model doesn't tilt)
             head.transform.localEulerAngles = (new Vector3(-rotationY, head.transform.localEulerAngles.y, 0));
 
@@ -211,12 +225,91 @@ public class CharacterMovement : MonoBehaviour
         if (!paused)
         {
             // Moves character forward or backward
-            playerRB.MovePosition(transform.position + (Vector3.Normalize(transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal")) * speed * Time.deltaTime));
+            playerRB.MovePosition(transform.position + (Vector3.Normalize(transform.forward * Input.GetAxisRaw("Vertical") + transform.right * flipMovementX * Input.GetAxisRaw("Horizontal")) * speed * Time.deltaTime));
+            
         }
+        // for manual gravity, that may be reversed
+        playerRB.AddForce(Physics.gravity * (flipped ? -1 : 1));
     }
 
     private void OnTriggerEnter(Collider other)
     {
         isGrounded = true;
+    }
+
+
+    // some ugly variables...
+    [SerializeField]
+    public bool flipped = false, mirrorCamera = false;
+    [SerializeField]
+    private CameraMirror camMirror;
+    private float flipCameraX = 1;
+    private float flipMovementX = 1;
+    [SerializeField]
+    private float roomHight = 3;
+
+    // 'teleport' player to the other side of the mirror, aka flip him very spesific way
+    public void Flip(GameObject portal, bool flip)
+    {
+
+        if (flip)
+        {
+            Vector3 portalOffset = Vector3.Reflect(portal.transform.position - transform.position, portal.transform.up);
+            portalOffset.y = 0;
+            Debug.Log(portalOffset + new Vector3(portal.transform.position.x, roomHight - transform.position.y, portal.transform.position.z));
+            transform.position = portalOffset + new Vector3(portal.transform.position.x, roomHight - transform.position.y, portal.transform.position.z);
+            Vector3 newCameraRotation = Vector3.Reflect(transform.forward, portal.transform.up);
+            transform.rotation = Quaternion.LookRotation(newCameraRotation, -transform.up);
+
+        }
+        else
+        {
+            Vector3 newCameraRotation = Vector3.Reflect(transform.forward, portal.transform.up);
+            transform.rotation = Quaternion.LookRotation(newCameraRotation, transform.up);
+        }
+
+    }
+
+    // flip the player upsidedown, or upright
+    public void Flipped(bool flipped)
+    {
+        this.flipped = flipped;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, (flipped ? 180 : 0));
+        UpdateControls();
+    }
+
+    // Mirror player camera if necessery
+    public void Mirroring(bool mirrored)
+    {
+        mirrorCamera = mirrored;
+        camMirror.mirror = mirrorCamera;
+        UpdateControls();
+    }
+
+    // Update horizontal control flipping
+    public void UpdateControls()
+    {
+
+        flipMovementX = mirrorCamera ? -1 : 1;
+
+        if (flipped)
+        {
+            flipCameraX = mirrorCamera ? 1 : -1;
+        }
+        else
+        {
+            flipCameraX = mirrorCamera ? -1 : 1;
+        }
+    }
+
+    IEnumerator WakeUp()
+    {
+
+        anim.Play("LieInBed");
+        yield return new WaitForSeconds(1);
+        anim.Play("WakeUp");
+        yield return new WaitForSeconds(3);
+        paused = false;
+        yield return null;
     }
 }

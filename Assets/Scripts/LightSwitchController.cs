@@ -11,6 +11,14 @@ public class LightSwitchController : MonoBehaviour
     public GameObject SpotLight;
     public GameObject Switch;
 
+    //Audio Stuff//
+    //Clips
+    public AudioClip lightSwitchOn;
+    public AudioClip lightSwitchOff;
+    //Sources
+    public AudioSource sourceForOn;
+    public AudioSource sourceForOff;
+
     // Check at start is light on or off and do stuff accordingly
     void Start()
     {
@@ -24,6 +32,10 @@ public class LightSwitchController : MonoBehaviour
             isLightsOn = false;
             Switch.transform.localEulerAngles = new Vector3(-10, 0, 0);
         }
+        //Putting sounds to sources
+        sourceForOn.clip = lightSwitchOn;
+        sourceForOff.clip = lightSwitchOff;
+
     }
 
     //Interacting with lightSwitch ...
@@ -32,12 +44,14 @@ public class LightSwitchController : MonoBehaviour
         Debug.Log("LightSwitch!");
         if(isLightsOn == true)
         {
+            sourceForOff.Play();
             isLightsOn = false;
             SpotLight.SetActive(false);
             Switch.transform.localEulerAngles = new Vector3(-10, 0, 0);
         }
         else
         {
+            sourceForOn.Play();
             isLightsOn = true;
             SpotLight.SetActive(true);
             Switch.transform.localEulerAngles = new Vector3(10, 0, 0);

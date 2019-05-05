@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class DrawerController : MonoBehaviour
 {
+    // Objects telling the drawer the direction and length of movement
+    public Transform stop;
+    public Transform center;
+    // Starting position of drawer
+    public Vector3 startPos;
     // The closed position of the drawer
     public float closedPos;
     // Fully open position of the drawer
     public float openPos;
+    // Vector of movement
+    public Vector3 direction;
     // Distance on the z axis between the player's grab point and drawer position
     public float difference;
     // Current location of the drawer
-    public Vector3 currentPoint;
+    public float currentPoint;
     // Maximum distance to pull the drawer
     public float maxPull;
     // Indigator of current state
@@ -24,19 +31,25 @@ public class DrawerController : MonoBehaviour
 
     void Start()
     {
+        // Starting position of the drawer
+        startPos = transform.position;
+        // Allowed direction of movement
+        direction = Vector3.Normalize(center.position - stop.position);
+        // Maximum distance of movement
+        maxPull = Vector3.Magnitude(center.position - stop.position);
         // Set the closed position to be the initial position of the drawer
-        closedPos = transform.localPosition.x;
+        closedPos = 0;
         // Set the open position to be a position that's maxPull distance away from the closed position
         openPos = closedPos + maxPull;
         // set the current position to be the intial world position of the drawer
-        currentPoint = transform.localPosition;
+        currentPoint = closedPos;
         // set parent
         parent = this.gameObject.GetComponentInParent<DresserController>();
         // If the starting state was set as open, move the drawer accordingly
         if (isOpen)
         {
-            currentPoint.x = openPos;
-            transform.localPosition = currentPoint;
+            currentPoint = openPos;
+            transform.position = (startPos + (direction * (openPos - closedPos)));
         }
     }
 
@@ -50,23 +63,22 @@ public class DrawerController : MonoBehaviour
     // Do this every frame the player is holding the hold button on the drawer
     void Hold(Vector3 grabPoint)
     {
-        // Transform grabPoint into local coordinates
-        transform.InverseTransformPoint(grabPoint);
 
         // Check if difference has been set
         if (difference == 0)
         {
-            // Set the difference as the distance between the grabpoint and transform position on the z axis
-            difference = transform.localPosition.x - grabPoint.z;
+            // Set the difference as the distance between the grabpoint and transform position
+            difference = Vector3.Dot(grabPoint - transform.position, direction);
         }
 
         // Check if the potential new position for the drawer is between the closed and open positions
-        if (grabPoint.z + difference >= closedPos && grabPoint.z + difference <= openPos)
+        Debug.Log(Vector3.Dot(grabPoint - startPos, direction));
+        if (Vector3.Dot(grabPoint - startPos, direction) - difference >= closedPos && Vector3.Dot(grabPoint - startPos, direction) - difference <= openPos)
         {
             // Set the current position to align with the current position of grabpoint
-            currentPoint.x = grabPoint.z + difference;
+            currentPoint = Vector3.Dot(grabPoint - startPos, direction) - difference;
             // Set new position for transform
-            transform.localPosition = currentPoint;
+            transform.position = (startPos + (direction * currentPoint));
         }
     }
 
@@ -77,7 +89,7 @@ public class DrawerController : MonoBehaviour
         difference = 0;
 
         // Jump to open position if it's closer then half the maxPull
-        if(Mathf.Abs(currentPoint.x - closedPos) > maxPull/2)
+        if(Mathf.Abs(currentPoint - closedPos) > maxPull/2)
         {
             if (!isOpen)
             {
@@ -118,12 +130,11 @@ public class DrawerController : MonoBehaviour
     IEnumerator LerpToPosition()
     {
         // Is already at desired position
-        if((isOpen && currentPoint.z == openPos) || (!isOpen && currentPoint.x == closedPos))
+        if((isOpen && currentPoint == openPos) || (!isOpen && currentPoint == closedPos))
         {
             yield return null;
         }
 
-        float startPos = transform.localPosition.x;
         float finishPos;
 
         if(isOpen)
@@ -139,8 +150,8 @@ public class DrawerController : MonoBehaviour
         // Lerp into desired position
         while(elapsedTime < lerpTime)
         {
-            currentPoint.x = Mathf.Lerp(startPos, finishPos, (elapsedTime / lerpTime));
-            transform.localPosition = currentPoint;
+            currentPoint = Mathf.Lerp(currentPoint, finishPos, (elapsedTime / lerpTime));
+            transform.position = (startPos + (direction * currentPoint));
             yield return new WaitForEndOfFrame();
             elapsedTime += Time.deltaTime;
         }
