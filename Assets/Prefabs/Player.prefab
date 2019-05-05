@@ -152,8 +152,12 @@ MonoBehaviour:
   sensitivity: 5
   minY: -60
   maxY: 60
-  jumpingSound: {fileID: 8300000, guid: 19a5222fc96d9aa4d980815efc475cd9, type: 3}
+  jumpingSound: {fileID: 8300000, guid: 3634e4d43cf799348892b05044c6feda, type: 3}
   playersFeet4Jump: {fileID: 8002050328858144991}
+  flipped: 0
+  mirrorCamera: 0
+  camMirror: {fileID: 0}
+  roomHight: 3
 --- !u!54 &5143984834190367429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,8 +212,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 56a5444a6ae357341b147b2425712c2f, type: 2}
+  - {fileID: 7400000, guid: 202efcc2f01e7eb4cb39039dfb5ad88d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

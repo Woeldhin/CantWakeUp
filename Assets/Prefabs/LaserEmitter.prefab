@@ -108,7 +108,7 @@ MonoBehaviour:
   enabledFromStart: 0
   laserPrefab: {fileID: 1235798386483749424, guid: cb46f6e2fa30b844998ce162575ff125,
     type: 3}
-  laserOn: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
+  laserOn: {fileID: 8300000, guid: 3dd316322d84b71499b5bf340daed54a, type: 3}
   forLaser: {fileID: 5512032754186631908}
 --- !u!82 &5512032754186631908
 AudioSource:
