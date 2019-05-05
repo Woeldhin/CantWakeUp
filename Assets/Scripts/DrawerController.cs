@@ -72,7 +72,6 @@ public class DrawerController : MonoBehaviour
         }
 
         // Check if the potential new position for the drawer is between the closed and open positions
-        Debug.Log(Vector3.Dot(grabPoint - startPos, direction));
         if (Vector3.Dot(grabPoint - startPos, direction) - difference >= closedPos && Vector3.Dot(grabPoint - startPos, direction) - difference <= openPos)
         {
             // Set the current position to align with the current position of grabpoint

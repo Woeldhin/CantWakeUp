@@ -87,6 +87,8 @@ public class GameController : MonoBehaviour
             player.paused = false;
             // Disable pause screen
             pauseScreen.SetActive(false);
+            // Pause game time
+            Time.timeScale = 1;
         }
         else
         {
@@ -100,6 +102,8 @@ public class GameController : MonoBehaviour
             player.paused = true;
             // Enable pause screen
             pauseScreen.SetActive(true);
+            // Resume game time
+            Time.timeScale = 0;
         }
     }
 }
