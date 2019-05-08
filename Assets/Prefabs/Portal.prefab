@@ -505,7 +505,6 @@ MonoBehaviour:
   magicMirror: {fileID: 152434410}
   active: 1
   flip: 0
-  mirror: 1
 --- !u!1 &6149052336780286462
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,9 +568,9 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: bafef7b58b81a5344a03ebdc9ed13352, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -598,6 +597,7 @@ MonoBehaviour:
   cameraMaterial: {fileID: 2100000, guid: 4d3beb6882f2a2e4296a56b6153cb236, type: 2}
   roomHight: 3
   flipped: 0
+  playerUpright: 1
 --- !u!114 &152434409
 MonoBehaviour:
   m_ObjectHideFlags: 0

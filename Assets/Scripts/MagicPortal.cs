@@ -9,7 +9,11 @@ public class MagicPortal : MonoBehaviour
     CharacterMovement player;
     [SerializeField]
     MagicMirror magicMirror;
-    
+
+    // delegate for calling all the units that must turn when mirror is used
+    public delegate void CallMirrorVisibilitys(bool exist);
+    public CallMirrorVisibilitys callMirrorVisibilitys;
+
     public bool active = true;
     public bool flip = true;
     bool oldFlip;
@@ -57,7 +61,10 @@ public class MagicPortal : MonoBehaviour
         magicMirror.Mirroring(true);
     }
 
-    // for detecting the change in flip
+
+
+    // for detecting the change in flip from the inspector
+    /// !!!disable for final build!!!
     void Update()
     {
         if(oldFlip != flip)
@@ -82,6 +89,9 @@ public class MagicPortal : MonoBehaviour
                 player.Mirroring(!player.mirrorCamera);
             }
             SetMirror();
+            
+            // set objects to exist if players camera is mirrored
+            callMirrorVisibilitys(player.mirrorCamera);
 
         }
     }
