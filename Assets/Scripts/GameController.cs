@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
     public void Reset()
     {
         // Reload the same scene
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
