@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaterPuzzleTank3 : MonoBehaviour
 {
+    public LaserEmitter firstLaser;
+
     GameObject tap;
     GameObject tank5;
 
@@ -122,7 +124,7 @@ public class WaterPuzzleTank3 : MonoBehaviour
                     tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
                     tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
-                    print("You win!");
+                    firstLaser.SendMessage("Interact");
                     break;
                 case 3:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;

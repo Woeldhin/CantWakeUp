@@ -401,6 +401,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1984820869911665499, guid: 32e3900c5b31eeb4199277f6ab27ba5f,
+        type: 3}
+      propertyPath: firstLaser
+      value: 
+      objectReference: {fileID: 1789553100}
+    - target: {fileID: 1984820870190721537, guid: 32e3900c5b31eeb4199277f6ab27ba5f,
+        type: 3}
+      propertyPath: firstLaser
+      value: 
+      objectReference: {fileID: 1789553100}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32e3900c5b31eeb4199277f6ab27ba5f, type: 3}
 --- !u!4 &25506846 stripped
@@ -7919,7 +7929,7 @@ PrefabInstance:
     - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
         type: 3}
       propertyPath: enabledFromStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
@@ -19434,6 +19444,18 @@ MonoBehaviour:
   isButtonPressed: 0
   Switch2: {fileID: 0}
   Switch3: {fileID: 0}
+--- !u!114 &1789553100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+    type: 3}
+  m_PrefabInstance: {fileID: 727740955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591d4604aeefd7c4aa5265c67a15cfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1806519272
 PrefabInstance:
   m_ObjectHideFlags: 0
