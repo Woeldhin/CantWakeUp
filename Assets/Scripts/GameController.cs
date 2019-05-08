@@ -17,6 +17,12 @@ public class GameController : MonoBehaviour
     public int secondsToReset;
     private float countDown;
 
+    //Audio stuff//
+    //Clips
+    public AudioClip backroundMusic;
+    //Sources
+    public AudioSource backroundMusicSource;
+
     private void Start()
     {
         // Initialize the countdown timer
@@ -29,6 +35,11 @@ public class GameController : MonoBehaviour
         paused = false;
         // Set winText
         winText = "YOU ARE WINNER!";
+
+        //putting sound to source
+        backroundMusicSource.clip = backroundMusic;
+        //Play backroundmsuic
+        backroundMusicSource.Play();
     }
 
     private void Update()
@@ -45,6 +56,7 @@ public class GameController : MonoBehaviour
         {
             // Run the Reset function
             Reset();
+            Debug.Log("Resetting");
         }
 
         // Check if pause/menu button is pressed
