@@ -68,8 +68,10 @@ public class CharacterMovement : MonoBehaviour
     //Audio stuff//
     //Audio clips
     public AudioClip jumpingSound;
+    public AudioClip step;
     //Audio sources
     public AudioSource playersFeet4Jump;
+    public AudioSource playersFeet4Walk;
 
     private void Start()
     {
@@ -83,6 +85,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Putting sounds to sources
         playersFeet4Jump.clip = jumpingSound;
+        playersFeet4Walk.clip = step;
     }
 
     void Update()
@@ -226,7 +229,12 @@ public class CharacterMovement : MonoBehaviour
         {
             // Moves character forward or backward
             playerRB.MovePosition(transform.position + (Vector3.Normalize(transform.forward * Input.GetAxisRaw("Vertical") + transform.right * flipMovementX * Input.GetAxisRaw("Horizontal")) * speed * Time.deltaTime));
-            
+            if(isGrounded && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && playersFeet4Walk.isPlaying == false)
+            {
+                playersFeet4Walk.pitch = Random.Range(0.8f, 1.15f);
+                playersFeet4Walk.volume = Random.Range(0.75f, 1);
+                playersFeet4Walk.PlayDelayed(0.1f);
+            }
         }
         // for manual gravity, that may be reversed
         playerRB.AddForce(Physics.gravity * (flipped ? -1 : 1));
