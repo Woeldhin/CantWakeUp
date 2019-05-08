@@ -62,6 +62,7 @@ public class DresserController : MonoBehaviour
                 victorySound.source.Play();
             }
             key.isKinematic = false;
+            key.useGravity = false;
             Destroy(this.gameObject, 1);
         }
     }

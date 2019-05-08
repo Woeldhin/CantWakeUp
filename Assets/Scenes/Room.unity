@@ -4354,8 +4354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a10c1a2d0e0621488cc22dd9f6ed67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLaser: {fileID: 0}
-  key: {fileID: 0}
+  firstLaser: {fileID: 1789553098}
+  key: {fileID: 125702889}
 --- !u!65 &425253066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10434,11 +10434,21 @@ PrefabInstance:
       propertyPath: drawer
       value: 
       objectReference: {fileID: 650617865}
+    - target: {fileID: 7687485550340551805, guid: 706afd0f27c613a4ca55222a906cfb54,
+        type: 3}
+      propertyPath: dresser
+      value: 
+      objectReference: {fileID: 1272673841}
     - target: {fileID: 7687485550741515852, guid: 706afd0f27c613a4ca55222a906cfb54,
         type: 3}
       propertyPath: drawer
       value: 
-      objectReference: {fileID: 1623693167}
+      objectReference: {fileID: 650617865}
+    - target: {fileID: 7687485550741515852, guid: 706afd0f27c613a4ca55222a906cfb54,
+        type: 3}
+      propertyPath: dresser
+      value: 
+      objectReference: {fileID: 1272673841}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 706afd0f27c613a4ca55222a906cfb54, type: 3}
 --- !u!1001 &916358927
@@ -12660,6 +12670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 125702889}
+  puzzleActive: 0
   drawers:
   - {fileID: 1137854361}
   - {fileID: 1623693167}
@@ -19517,15 +19528,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonPressed: 0
-  Switch2: {fileID: 0}
-  Switch3: {fileID: 0}
+  Switch2: {fileID: 1781452801}
+  Switch3: {fileID: 2053463928}
+--- !u!1 &1789553098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 12989924303146134, guid: a977f3535b23dc543b5095919653a618,
+    type: 3}
+  m_PrefabInstance: {fileID: 727740955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1789553100 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
     type: 3}
   m_PrefabInstance: {fileID: 727740955}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1789553098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 591d4604aeefd7c4aa5265c67a15cfa3, type: 3}
@@ -21246,8 +21263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonPressed: 0
-  Switch1: {fileID: 0}
-  Switch2: {fileID: 0}
+  Switch1: {fileID: 1973065748}
+  Switch2: {fileID: 1781452801}
 --- !u!4 &1976583628
 Transform:
   m_ObjectHideFlags: 0
@@ -21888,6 +21905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: enabledFromStart
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
