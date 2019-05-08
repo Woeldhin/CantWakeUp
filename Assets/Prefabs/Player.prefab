@@ -210,7 +210,7 @@ MonoBehaviour:
   playersFeet4Walk: {fileID: 116381769464950740}
   flipped: 0
   mirrorCamera: 0
-  camMirror: {fileID: 1033560726}
+  camMirror: {fileID: 0}
   roomHight: 3
 --- !u!54 &5143984834190367429
 Rigidbody:

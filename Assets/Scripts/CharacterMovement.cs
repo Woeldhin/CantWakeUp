@@ -26,6 +26,16 @@ public class CharacterMovement : MonoBehaviour
     // Animation component
     public Animation anim;
 
+    // Variables for MagicMirror to use //
+    // state toggles
+    public bool flipped = false, mirrorCamera = false;
+    // reference, obtained at Start()
+    private CameraMirror camMirror;
+    // number bools to flip controls around
+    private float flipCameraX = 1, flipMovementX = 1;
+    [SerializeField] // reference for room hight, nessesary for the MagicMirror to work properly
+    private float roomHight = 3;
+
     // Movement variables //
     // Interact distance
     public float maxDistance;
@@ -86,6 +96,8 @@ public class CharacterMovement : MonoBehaviour
         //Putting sounds to sources
         playersFeet4Jump.clip = jumpingSound;
         playersFeet4Walk.clip = step;
+
+        camMirror = GetComponentInChildren<CameraMirror>();
     }
 
     void Update()
@@ -245,34 +257,29 @@ public class CharacterMovement : MonoBehaviour
         isGrounded = true;
     }
 
-
-    // some ugly variables...
-    [SerializeField]
-    public bool flipped = false, mirrorCamera = false;
-    [SerializeField]
-    private CameraMirror camMirror;
-    private float flipCameraX = 1;
-    private float flipMovementX = 1;
-    [SerializeField]
-    private float roomHight = 3;
-
     // 'teleport' player to the other side of the mirror, aka flip him very spesific way
     public void Flip(GameObject portal, bool flip)
     {
 
         if (flip)
         {
+            // get players reflected offset from the 'portal'
             Vector3 portalOffset = Vector3.Reflect(portal.transform.position - transform.position, portal.transform.up);
+            // set y component to zero, so we may manually add room hight correction
             portalOffset.y = 0;
-            Debug.Log(portalOffset + new Vector3(portal.transform.position.x, roomHight - transform.position.y, portal.transform.position.z));
+            // move player to new position with room hight correction added
             transform.position = portalOffset + new Vector3(portal.transform.position.x, roomHight - transform.position.y, portal.transform.position.z);
+            // get new faceing direction for the camera
             Vector3 newCameraRotation = Vector3.Reflect(transform.forward, portal.transform.up);
+            // rotate players camera and turn it upsidedown
             transform.rotation = Quaternion.LookRotation(newCameraRotation, -transform.up);
 
         }
         else
         {
+            // get player newreflected faceing from the portal
             Vector3 newCameraRotation = Vector3.Reflect(transform.forward, portal.transform.up);
+            // rotate player to face the new direction
             transform.rotation = Quaternion.LookRotation(newCameraRotation, transform.up);
         }
 
