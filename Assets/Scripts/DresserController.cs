@@ -5,6 +5,7 @@ using UnityEngine;
 public class DresserController : MonoBehaviour
 {
     public Rigidbody key;
+    public bool puzzleActive;
 
     [SerializeField]
     // Array of the drawers that are part of the dresser
@@ -16,16 +17,19 @@ public class DresserController : MonoBehaviour
     // Run every time drawers state is updated
     public void DrawerUpdate(DrawerController caller)
     {
-        // Find the drawer from the array
-        for(int i = 0; i < drawers.Length; i++)
+        if(puzzleActive)
         {
-            if(caller == drawers[i])
+            // Find the drawer from the array
+            for (int i = 0; i < drawers.Length; i++)
             {
-                DrawerMoved(i);
+                if (caller == drawers[i])
+                {
+                    DrawerMoved(i);
+                }
             }
-        }
 
-        CheckComplete();
+            CheckComplete();
+        }
     }
 
     // Check if the puzzle is completed
@@ -44,7 +48,7 @@ public class DresserController : MonoBehaviour
                 break;
             }
         }
-        // If all drawers where open, delete the dresser
+        // If all drawers are open, delete the dresser
         if (counter == drawers.Length)
         {
             if(victorySound != null)
