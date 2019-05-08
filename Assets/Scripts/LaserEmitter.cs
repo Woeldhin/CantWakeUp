@@ -9,7 +9,7 @@ public class LaserEmitter : MonoBehaviour
     private GameObject laser;
     private Transform laserTransform;
     private Laser laserLaser;
-    private bool turnedOn;
+    public bool turnedOn;
     private GameObject target;
 
     //Audio stuff//
@@ -82,7 +82,7 @@ public class LaserEmitter : MonoBehaviour
         }
     }
 
-    void Interact()
+    public void Interact()
     {
         turnedOn = !turnedOn;
 

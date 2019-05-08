@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlarmClockController : MonoBehaviour
 {
     // Drawer puzzle starter
+    public DresserController dresser;
     public DrawerController drawer;
 
     //Scrolls at back of clock that player uses to change clocks time
@@ -62,6 +63,7 @@ public class AlarmClockController : MonoBehaviour
         {
             Debug.Log("Voitit kellopelin!");
             drawer.TogglePosition();
+            dresser.puzzleActive = true;
         }
     }
 }

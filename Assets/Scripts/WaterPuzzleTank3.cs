@@ -124,7 +124,9 @@ public class WaterPuzzleTank3 : MonoBehaviour
                     tank5bar3.GetComponent<Renderer>().material.color = Color.cyan;
                     tank5bar2.GetComponent<Renderer>().material.color = Color.cyan;
                     tank5bar1.GetComponent<Renderer>().material.color = Color.cyan;
-                    firstLaser.SendMessage("Interact");
+                    Debug.Log("REE");
+                    firstLaser.GetComponent<Renderer>().enabled = true;
+                    firstLaser.Interact();
                     break;
                 case 3:
                     tank5bar5.GetComponent<Renderer>().material.color = Color.white;
