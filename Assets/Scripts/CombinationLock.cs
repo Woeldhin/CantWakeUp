@@ -31,14 +31,20 @@ public class CombinationLock : MonoBehaviour
     {
         if (n1.currentStep == n1Correct && n2.currentStep == n2Correct && n3.currentStep == n3Correct)
         {
-            Unlock();
+            StartCoroutine(Unlock());
         }
     }
-    void Unlock()
+    IEnumerator Unlock()
     {
         // I guess something happens 
         Debug.Log("Mellon");
         // Open the locked Object
-        lockedObject.transform.Rotate(0, -90, 0);
+        while (lockedObject.transform.position.y < 6.5f)
+        {
+            lockedObject.transform.position = new Vector3(lockedObject.transform.position.x, Mathf.Lerp(lockedObject.transform.position.y, 6.5f, 0.001f), lockedObject.transform.position.z);
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
     }
 }
