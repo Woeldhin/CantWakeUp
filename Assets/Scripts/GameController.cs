@@ -66,10 +66,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ShutDown()
+    public void ExitToMenu()
     {
         // Terminate program operations
-        Application.Quit();
+        Time.timeScale = 1;
+        Application.LoadLevel(0);
     }
 
     public void Reset()
@@ -117,6 +118,15 @@ public class GameController : MonoBehaviour
             pauseScreen.SetActive(true);
             // Resume game time
             Time.timeScale = 0;
+        }
+    }
+
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.isKey)
+        {
+            Debug.Log("Detected key code: " + e.keyCode);
         }
     }
 }
