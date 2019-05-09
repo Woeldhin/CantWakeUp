@@ -15,11 +15,14 @@ public class MirrorVisibility : MonoBehaviour
     private List<GameObject> gameObjects = new List<GameObject>();
     // list to hold this and all child colliders
     private List<Collider> colliders = new List<Collider>();
+    // MagicPortal
+    MagicPortal magicportal;
 
     private void Start()
     {
         // subscribe to MagicPortals call list
-        FindObjectOfType<MagicPortal>().callMirrorVisibilitys += this.Exist;
+        magicportal = FindObjectOfType<MagicPortal>();
+        magicportal.callMirrorVisibilitys += this.Exist;
 
         // add this to both lists
         gameObjects.Add(this.gameObject);
@@ -50,7 +53,7 @@ public class MirrorVisibility : MonoBehaviour
     private void OnDestroy()
     {
         // un-subscribe from MagicPortals call list
-        FindObjectOfType<MagicPortal>().callMirrorVisibilitys -= this.Exist;
+        magicportal.callMirrorVisibilitys -= this.Exist;
     }
 
     // Toggle The State Of Existance!
