@@ -10,6 +10,8 @@ public class MirrorVisibility : MonoBehaviour
     [SerializeField] // bool to determin which layer to use
     private bool exist = true;
     private bool oldExist = true;
+    [SerializeField]
+    private bool reverseEffect = false;
 
     // list to hold this and all child gameobjects
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -26,12 +28,12 @@ public class MirrorVisibility : MonoBehaviour
 
         // add this to both lists
         gameObjects.Add(this.gameObject);
-        Collider collider = gameObject.GetComponent<Collider>();
+        Collider[] collider = gameObject.GetComponents<Collider>();
 
         // to colliders list only if we have one
         if (collider != null)
         {
-            colliders.Add(collider);
+            colliders.AddRange(collider);
         }
 
         // get all childs gameobjects and colliders
@@ -39,10 +41,10 @@ public class MirrorVisibility : MonoBehaviour
         {
             gameObjects.Add(child.gameObject);
 
-            collider = child.GetComponent<Collider>();
+            collider = child.GetComponents<Collider>();
             if(collider != null)
             {
-                colliders.Add(collider);
+                colliders.AddRange(collider);
             }
         }
 
@@ -61,14 +63,16 @@ public class MirrorVisibility : MonoBehaviour
     {
         this.exist = exist;
 
+        bool temp = (reverseEffect ? !exist : exist);
+
         foreach (GameObject go in gameObjects)
         {
-            go.layer = (exist ? mirrorIqnoreLayer : mirrorOnlyLayer);
+            go.layer = (temp ? mirrorIqnoreLayer : mirrorOnlyLayer);
         }
 
         foreach(Collider col in colliders)
         {
-            col.enabled = exist;
+            col.enabled = temp;
         }
     }
 
