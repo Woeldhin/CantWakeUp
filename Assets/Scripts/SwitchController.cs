@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
-
-    public bool isButtonPressed;
-
-    public GameObject Switch1;
-    public GameObject Switch2;
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Switch2.SetActive(false);
-    }
+    public GameObject nextSwitch;
+    public TVController tv;
+    public bool lastSwitch;
+    public string changeText;
 
     void Interact()
     {
-        Debug.Log("Button active!");
-            Switch2.SetActive(true);
+        if(lastSwitch)
+        {
+            tv.Next();
+        }
+        else
+        {
+            nextSwitch.SetActive(true);
+            tv.mirrorText.text = changeText;
+        }
     }
 }
