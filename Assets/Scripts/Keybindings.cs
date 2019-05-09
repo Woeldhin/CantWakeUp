@@ -9,19 +9,4 @@ public class Keybindings : MonoBehaviour
     public KeyCode interact;
     public KeyCode pause;
     public KeyCode reset;
-
-    private void Start()
-    {
-        
-    }
-
-    public void Save()
-    {
-
-    }
-
-    private void Load()
-    {
-
-    }
 }
