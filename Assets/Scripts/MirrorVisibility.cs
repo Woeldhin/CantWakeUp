@@ -12,6 +12,8 @@ public class MirrorVisibility : MonoBehaviour
     private bool oldExist = true;
     [SerializeField]
     private bool reverseEffect = false;
+    [SerializeField]
+    private bool isActive = true;
 
     // list to hold this and all child gameobjects
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -50,6 +52,7 @@ public class MirrorVisibility : MonoBehaviour
 
         // initialise the state of existance
         Exist(exist);
+        gameObject.SetActive(isActive);
     }
 
     private void OnDestroy()
