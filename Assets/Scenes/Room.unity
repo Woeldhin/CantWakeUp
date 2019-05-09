@@ -9007,8 +9007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonPressed: 0
-  Switch2: {fileID: 0}
-  Switch3: {fileID: 0}
+  Switch2: {fileID: 1781452801}
+  Switch3: {fileID: 2053463928}
 --- !u!136 &720143701
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16937,8 +16937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonPressed: 0
-  Switch1: {fileID: 0}
-  Switch2: {fileID: 0}
+  Switch1: {fileID: 1973065748}
+  Switch2: {fileID: 1781452801}
 --- !u!136 &1438726895
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22368,7 +22368,6 @@ GameObject:
   - component: {fileID: 1781452805}
   - component: {fileID: 1781452804}
   - component: {fileID: 1781452803}
-  - component: {fileID: 1781452806}
   m_Layer: 0
   m_Name: Switch2
   m_TagString: Untagged
@@ -22385,7 +22384,7 @@ Transform:
   m_GameObject: {fileID: 1781452801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -194, y: -14.9, z: 162.1}
-  m_LocalScale: {x: 0.99988705, y: 1.0006869, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 720143699}
   m_Father: {fileID: 894715196}
@@ -22449,21 +22448,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781452801}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1781452806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781452801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f84a2302fb1504782bb3bdccd4df2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isButtonPressed: 0
-  Switch2: {fileID: 1781452801}
-  Switch3: {fileID: 2053463928}
 --- !u!1 &1789553098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 12989924303146134, guid: a977f3535b23dc543b5095919653a618,
@@ -24618,7 +24602,6 @@ GameObject:
   - component: {fileID: 1973065752}
   - component: {fileID: 1973065751}
   - component: {fileID: 1973065750}
-  - component: {fileID: 1973065753}
   m_Layer: 0
   m_Name: Switch1
   m_TagString: Untagged
@@ -24635,7 +24618,7 @@ Transform:
   m_GameObject: {fileID: 1973065748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -223.58324, y: 66.27, z: 72.23}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1438726893}
   m_Father: {fileID: 894715196}
@@ -24699,21 +24682,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973065748}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1973065753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973065748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6367c6899defc514f9b92d43a25ae27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isButtonPressed: 0
-  Switch1: {fileID: 1973065748}
-  Switch2: {fileID: 1781452801}
 --- !u!4 &1976583628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: bb8cdc4597f314c4590393fbbaa78698,
@@ -25448,7 +25416,6 @@ GameObject:
   - component: {fileID: 2053463932}
   - component: {fileID: 2053463931}
   - component: {fileID: 2053463930}
-  - component: {fileID: 2053463933}
   m_Layer: 0
   m_Name: Switch3
   m_TagString: Untagged
@@ -25465,7 +25432,7 @@ Transform:
   m_GameObject: {fileID: 2053463928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -89.85, y: -16.3, z: 16.31}
-  m_LocalScale: {x: 0.99988705, y: 1.0006869, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1587258868}
   m_Father: {fileID: 894715196}
@@ -25529,18 +25496,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053463928}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2053463933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053463928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5b1f42b7c971d41b62ddd613c41d01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2053702266
 PrefabInstance:
   m_ObjectHideFlags: 0
