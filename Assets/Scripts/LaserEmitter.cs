@@ -92,6 +92,7 @@ public class LaserEmitter : MonoBehaviour
     public void GoodJob()
     {
         turnedOn = false;
+        laser.SetActive(false);
         gameObject.tag = "Untagged";
         GetComponent<Renderer>().enabled = false;
     }
