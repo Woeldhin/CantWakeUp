@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
     public void ExitToMenu()
     {
         // Terminate program operations
+        Time.timeScale = 1;
         Application.LoadLevel(0);
     }
 
