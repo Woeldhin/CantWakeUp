@@ -193,6 +193,9 @@ MonoBehaviour:
   keybindings: {fileID: 0}
   playerRB: {fileID: 5143984834190367429}
   anim: {fileID: 706296127}
+  flipped: 0
+  mirrorCamera: 0
+  roomHight: 3
   maxDistance: 1.25
   standSpeed: 3
   crouchSpeed: 1.5
@@ -204,14 +207,10 @@ MonoBehaviour:
   sensitivity: 5
   minY: -80
   maxY: 80
-  jumpingSound: {fileID: 8300000, guid: 19a5222fc96d9aa4d980815efc475cd9, type: 3}
+  jumpingSound: {fileID: 8300000, guid: b4d31556949aeb545b52bc8dbed8518d, type: 3}
   step: {fileID: 8300000, guid: 8b66e6090ea196443a6b035b43027187, type: 3}
   playersFeet4Jump: {fileID: 8002050328858144991}
   playersFeet4Walk: {fileID: 116381769464950740}
-  flipped: 0
-  mirrorCamera: 0
-  camMirror: {fileID: 0}
-  roomHight: 3
 --- !u!54 &5143984834190367429
 Rigidbody:
   m_ObjectHideFlags: 0
