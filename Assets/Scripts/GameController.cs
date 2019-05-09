@@ -66,10 +66,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ShutDown()
+    public void ExitToMenu()
     {
         // Terminate program operations
-        Application.Quit();
+        Application.LoadLevel(0);
     }
 
     public void Reset()
