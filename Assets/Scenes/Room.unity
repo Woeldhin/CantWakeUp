@@ -4171,7 +4171,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 751110249}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &307807401
+--- !u!65 &307807402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307807400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.000116526724, y: 0.0032792666, z: 0.004818138}
+  m_Center: {x: -0.00009468432, y: -0.00062466005, z: 0.000009933786}
+--- !u!114 &307807403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4193,19 +4206,6 @@ MonoBehaviour:
   closeDoor: {fileID: 0}
   forOpeningDoor: {fileID: 0}
   forClosingDoor: {fileID: 0}
---- !u!65 &307807402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307807400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.000116526724, y: 0.0032792666, z: 0.004818138}
-  m_Center: {x: -0.00009468432, y: -0.00062466005, z: 0.000009933786}
 --- !u!1 &325657606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: da2e96ffbaa4ec84085d964184a5f3e2,
@@ -6233,28 +6233,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 464118084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &464118087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464118086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb62e814db7983f438e9731743c1f547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angles:
-  - 0
-  - 95
-  openState: 0
-  parent: {fileID: 503711279}
-  locked: 1
-  openDoor: {fileID: 8300000, guid: 9a914d9765d37f943b2c36a7e8ea7375, type: 3}
-  closeDoor: {fileID: 8300000, guid: 0a44a2e0d8a339f4badf2fec60269323, type: 3}
-  forOpeningDoor: {fileID: 1963040837}
-  forClosingDoor: {fileID: 1211817551}
 --- !u!65 &464118088
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24374,7 +24352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1781452802
 Transform:
   m_ObjectHideFlags: 0
@@ -24910,7 +24888,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit Game
+  m_Text: Main Menu
 --- !u!222 &1813207067
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27431,28 +27409,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2027094593}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2027094596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027094595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb62e814db7983f438e9731743c1f547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angles:
-  - 0
-  - 95
-  openState: 0
-  parent: {fileID: 503711279}
-  locked: 1
-  openDoor: {fileID: 8300000, guid: 9a914d9765d37f943b2c36a7e8ea7375, type: 3}
-  closeDoor: {fileID: 8300000, guid: 0a44a2e0d8a339f4badf2fec60269323, type: 3}
-  forOpeningDoor: {fileID: 1963040837}
-  forClosingDoor: {fileID: 1211817551}
 --- !u!65 &2027094597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27753,7 +27709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2053463929
 Transform:
   m_ObjectHideFlags: 0
