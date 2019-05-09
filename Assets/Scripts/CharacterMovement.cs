@@ -297,10 +297,7 @@ public class CharacterMovement : MonoBehaviour
     public void Mirroring(bool mirrored)
     {
         mirrorCamera = mirrored;
-        if(camMirror != null)
-        {
-            camMirror.mirror = mirrorCamera;
-        }
+        camMirror.mirror = mirrorCamera;
         UpdateControls();
     }
 
