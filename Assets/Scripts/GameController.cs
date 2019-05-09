@@ -120,4 +120,13 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.isKey)
+        {
+            Debug.Log("Detected key code: " + e.keyCode);
+        }
+    }
 }
