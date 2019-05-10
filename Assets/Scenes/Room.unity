@@ -6842,7 +6842,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flipside
+  m_Text: It might be closer than you think
 --- !u!222 &494563106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9958,7 +9958,7 @@ MonoBehaviour:
   nextSwitch: {fileID: 2053463928}
   tv: {fileID: 425253065}
   lastSwitch: 0
-  changeText: Bookshelf
+  changeText: Smart people know where it is
 --- !u!136 &720143701
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15252,7 +15252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flipside
+  m_Text: Look closely at yourself to find it
 --- !u!222 &1034233708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19051,7 +19051,7 @@ MonoBehaviour:
   nextSwitch: {fileID: 1781452801}
   tv: {fileID: 425253065}
   lastSwitch: 0
-  changeText: Bath
+  changeText: Is it in the palace of resting?
 --- !u!136 &1438726895
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21452,7 +21452,7 @@ MonoBehaviour:
   nextSwitch: {fileID: 0}
   tv: {fileID: 425253065}
   lastSwitch: 1
-  changeText: REEEEEEE
+  changeText: Do you have it?
 --- !u!136 &1587258870
 CapsuleCollider:
   m_ObjectHideFlags: 0
