@@ -20,6 +20,11 @@ public class AlarmClockController : MonoBehaviour
     public int hourCounter = 7;
     public int minuteCounter = 0;
 
+    [HideInInspector]
+    public int hourSuccess = 3;
+    [HideInInspector]
+    public int minuteSuccess = 0;
+
     //how much will pointers tilt from one click of the "scrolls"
     private float tiltAngle = -30.0f;
 
@@ -59,7 +64,7 @@ public class AlarmClockController : MonoBehaviour
         }
 
         //Check if minute and hour counters are at right position for player to "win" this puzzle
-        if (minuteCounter == 0 && hourCounter == 3)
+        if (minuteCounter == minuteSuccess && hourCounter == hourSuccess)
         {
             Debug.Log("Voitit kellopelin!");
             drawer.TogglePosition();
