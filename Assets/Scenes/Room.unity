@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4805,6 +4805,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.36
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!4 &353210039 stripped
@@ -10456,6 +10461,11 @@ PrefabInstance:
       propertyPath: enabledFromStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!4 &732989396 stripped
@@ -11736,6 +11746,11 @@ PrefabInstance:
       propertyPath: enabledFromStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!4 &791209036 stripped
@@ -17361,7 +17376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bb4464da8836e4e8062eabee0bff96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 125702889}
   puzzleActive: 0
   drawers:
   - {fileID: 1137854361}
@@ -17522,6 +17536,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.519
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!4 &1288410638 stripped
@@ -24087,6 +24106,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     - target: {fileID: 12989924303146128, guid: a977f3535b23dc543b5095919653a618,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -24634,6 +24658,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.654
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!4 &1769066912 stripped
@@ -25285,6 +25314,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!1001 &1808993937
@@ -26906,6 +26940,11 @@ PrefabInstance:
       propertyPath: enabledFromStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294016316475346895, guid: a977f3535b23dc543b5095919653a618,
+        type: 3}
+      propertyPath: laserOn
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1017ae712344842a608dc72df6ef45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a977f3535b23dc543b5095919653a618, type: 3}
 --- !u!1001 &1960496530

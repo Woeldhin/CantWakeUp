@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DresserController : MonoBehaviour
 {
-    public Rigidbody key;
     public bool puzzleActive;
 
     [SerializeField]
@@ -61,8 +60,6 @@ public class DresserController : MonoBehaviour
                 victorySound.source.loop = victorySound.loop;
                 victorySound.source.Play();
             }
-            key.isKinematic = false;
-            key.useGravity = false;
             Destroy(this.gameObject, 1);
         }
     }

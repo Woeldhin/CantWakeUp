@@ -46,8 +46,7 @@ public class LaserEmitter : MonoBehaviour
 
             if (turnedOn)
             {
-                //Play laser sounds when emitter is on
-                forLaser.Play();
+                
                 if (hit.transform.name.Contains("LaserEmitter"))
                 {
                     if (!target)
@@ -84,6 +83,16 @@ public class LaserEmitter : MonoBehaviour
 
     public void Interact()
     {
+        //Play laser sounds when emitter is on
+        if (forLaser.isPlaying)
+        {
+            forLaser.Stop();
+        }
+        else
+        {
+            forLaser.Play();
+        }
+        
         turnedOn = !turnedOn;
 
         laser.SetActive(turnedOn);
@@ -95,5 +104,6 @@ public class LaserEmitter : MonoBehaviour
         laser.SetActive(false);
         gameObject.tag = "Untagged";
         GetComponent<Renderer>().enabled = false;
+        forLaser.Stop();
     }
 }
