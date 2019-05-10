@@ -5328,6 +5328,107 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 871390024b99ea345831374cbdf6475c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6897be905a4cf3345a6a4efba08bed3c, type: 3}
+--- !u!1001 &403122474
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1263960225}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_Name
+      value: Wall_1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.273
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000008146034
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000014603136
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.13686824e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1547ab45f1620734daff963fd5943176, type: 2}
+    - target: {fileID: 2300000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b830e651cb505d14c9c0227b50c47e1b, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91dff86e564fcc947a2dfe0f023a290a, type: 3}
+--- !u!1 &403122475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 91dff86e564fcc947a2dfe0f023a290a,
+    type: 3}
+  m_PrefabInstance: {fileID: 403122474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &403122476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403122475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1, y: 3.1, z: 0.02000025}
+  m_Center: {x: -1.5500004, y: 1.55, z: 0.010000125}
+--- !u!114 &403122477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403122475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e84bc9500ed6e4fb5172ee02a3bf0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirrorIqnoreLayer: 8
+  mirrorOnlyLayer: 9
+  exist: 0
+  reverseEffect: 0
+  isActive: 1
 --- !u!1 &404332457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 62b838c9e3470b94f837bd1d2a15998c,
