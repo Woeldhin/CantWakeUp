@@ -24,6 +24,7 @@ public class Holdable : MonoBehaviour
         lastFramePosition = transform.position;
         rb.useGravity = false;
         held = true;
+        gameObject.layer = 10;
     }
 
     void Hold(Vector3 grabPoint)
@@ -76,5 +77,6 @@ public class Holdable : MonoBehaviour
        // rb.freezeRotation = false;
         rb.useGravity = true;
         held = false;
+        gameObject.layer = 0;
     }
 }
