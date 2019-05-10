@@ -67,7 +67,7 @@ public class DoorController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.name.Contains("Key"))
+        if (collision.transform.name.Contains("key"))
         {
             locked = !locked;
             collision.transform.gameObject.SetActive(false);

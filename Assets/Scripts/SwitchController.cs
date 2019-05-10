@@ -11,14 +11,15 @@ public class SwitchController : MonoBehaviour
 
     void Interact()
     {
-        if(lastSwitch)
+        tv.mirrorText.text = changeText;
+
+        if (lastSwitch)
         {
             tv.Next();
         }
         else
         {
             nextSwitch.SetActive(true);
-            tv.mirrorText.text = changeText;
         }
     }
 }
