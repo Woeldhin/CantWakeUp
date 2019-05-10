@@ -14,9 +14,11 @@ public class DoorController : MonoBehaviour
     //Audio clips
     public AudioClip openDoor;
     public AudioClip closeDoor;
+    public AudioClip doorLocked;
     //Audio sources
     public AudioSource forOpeningDoor;
     public AudioSource forClosingDoor;
+    public AudioSource forLockedDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class DoorController : MonoBehaviour
         //Setting audioclips to audio sources
         forOpeningDoor.clip = openDoor;
         forClosingDoor.clip = closeDoor;
+        forLockedDoor.clip = doorLocked;
     }
 
     void Update()
@@ -58,6 +61,7 @@ public class DoorController : MonoBehaviour
         if (locked)
         {
             Debug.Log("It's locked.");
+            forLockedDoor.Play();
         }
         else
         {
