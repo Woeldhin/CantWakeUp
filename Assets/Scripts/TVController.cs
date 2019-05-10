@@ -7,6 +7,7 @@ public class TVController : MonoBehaviour
 {
     public GameObject firstLaser;
     public Rigidbody key;
+    public DrawerController bedDrawer;
     public GameObject tvViewReal;
     public GameObject tvViewMirror;
     public Text mirrorText;
@@ -26,6 +27,7 @@ public class TVController : MonoBehaviour
 
     public void Next()
     {
-
+        realText.text = "Get out of here.";
+        bedDrawer.TogglePosition();
     }
 }
