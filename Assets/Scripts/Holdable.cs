@@ -5,10 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Holdable : MonoBehaviour
 {
-    public Rigidbody rb;
-    public float pullForce = 100;
-    private Vector3 velocity;
-    private Vector3 lastFramePosition;
+    private Rigidbody rb;
     private Vector3 destination;
     private bool held = false;
 
@@ -20,8 +17,6 @@ public class Holdable : MonoBehaviour
 
     void Interact()
     {
-        //rb.freezeRotation = true;
-        lastFramePosition = transform.position;
         rb.useGravity = false;
         held = true;
         gameObject.layer = 10;
@@ -29,13 +24,6 @@ public class Holdable : MonoBehaviour
 
     void Hold(Vector3 grabPoint)
     {
-        velocity = (transform.position - lastFramePosition) / (Time.deltaTime * 2);
-        lastFramePosition = transform.position;
-        //rb.AddForce((grabPoint - transform.position) * pullForce * Vector3.Distance(transform.position, grabPoint));
-        /*if(Vector3.Distance(transform.position, grabPoint) < 0.05f)
-        {
-            rb.velocity *= Vector3.Distance(transform.position, grabPoint);
-        }*/
 
         Ray ray = new Ray(transform.position, grabPoint - transform.position);
         RaycastHit[] hits = Physics.RaycastAll(ray, Vector3.Distance(transform.position, grabPoint));
@@ -57,9 +45,6 @@ public class Holdable : MonoBehaviour
         }
 
         destination = grabPoint;
-
-        //transform.position = grabPoint;
-        //transform.LookAt(grabPoint);
     }
 
     void FixedUpdate()
@@ -73,8 +58,6 @@ public class Holdable : MonoBehaviour
 
     void Reset()
     {
-        rb.velocity = velocity;
-       // rb.freezeRotation = false;
         rb.useGravity = true;
         held = false;
         gameObject.layer = 0;

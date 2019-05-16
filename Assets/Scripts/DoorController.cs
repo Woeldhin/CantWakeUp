@@ -9,6 +9,8 @@ public class DoorController : MonoBehaviour
     public GameObject parent;
     private float currentAngle;
     public bool locked;
+    [SerializeField]
+    private float openingSpeed = 0.5f;
 
     //Audio stuff//
     //Audio clips
@@ -30,11 +32,11 @@ public class DoorController : MonoBehaviour
         forLockedDoor.clip = doorLocked;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (parent.transform.localEulerAngles.y != angles[openState])
         {
-            currentAngle = Mathf.Lerp(parent.transform.localEulerAngles.y, angles[openState], 0.05f);
+            currentAngle = Mathf.Lerp(parent.transform.localEulerAngles.y, angles[openState], openingSpeed * Time.deltaTime);
 
             parent.transform.localEulerAngles = new Vector3(0, currentAngle, 0);
         }
@@ -60,7 +62,6 @@ public class DoorController : MonoBehaviour
     {
         if (locked)
         {
-            Debug.Log("It's locked.");
             forLockedDoor.Play();
         }
         else
